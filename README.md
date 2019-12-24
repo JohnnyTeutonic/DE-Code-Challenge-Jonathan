@@ -1,29 +1,20 @@
 # Data-Engineering-Challenge
 Take home assignment based on Demyst Python libraries and building a model
 
-## Description
-In this challenge you will have to use our Analytics Python package using the documentation to show your understanding of APIs and knowledge of Python. The API documentation is available on https://docs.demyst.com/apis/python/analytics/api/. You can also login to our platform through the [website](https://demyst.com/) where you will find input file for this challenge that you need to append with external data using the Python API. 
+## Structure
+Final models selected are found in the Models/ directory. There is a Voting Classifier from the Scikit-Learn library named 'voting_classifier', as well as a hyperparameter-tuned Random Forest named 'tuned_forest' present in this directory
+Final DataFrame used is found in Data/ directory - it is named 'final_enriched_results.csv'
 
-Once you are done with the data enrichment, you will have to predict the target variable (safety_flag). The input file is available through the [Transfer Files section](https://console.demystdata.com/discovery/file_transfers) of the platform or from this repo.
+## Requirements
+Python 3.7 was used and every library was installed using pip.
+There is a requirements file present that can be used to download every external library i.e.
+```pip3 install -r requirements.txt```
+Models can be re-loaded using 'joblib's *dump* function
 
-## Requirement
+## Extra Libraries
 
-Perform three sub-tasks for submission:
-
-1) Analyze and clean the input file using Python/Pandas in a Jupyter Notebook. 
-2) Enrich the cleaned input with external data from the providers available on the platform.
-3) Use the enriched file to predict the target variable (safety_flag). You can use any model building packages/tools. Make sure the model can be re-trained. 
-
-A Jupyter Notebook displaying the steps you took to clean the input and enrich it through our Analytics Python package along with the model must be pushed to the Github Repo with any supporting files. Please be reminded to cache the enriched data in order to save some cost as there is an upper limit for the data enrichment. A smart tip is to try to run a few records first to test what the input and output should look like. For sub-task 1) and 3), please also create some unit test cases using Python standard unit testing framework.
-
-If you use any third party libraries / non-standard build tools, document the build instructions clearly in a readme file.
-
-## Evaluation
-
-- Coding style: 30% Ease of maintenance; terseness; use of best practices; leverage latest technologies / libraries / clever coding techniques; etc. Appropriate choice of 3rd party libraries or frameworks is encouraged.
-- Data wrangling: 20% Steps taken to clean data and possibility of automating the cleansing step through scripts.
-- Documentation: 20% Is the Jupyter Notebook self-explanatory?
-- Modelling: 20% Understanding of models and analytics and implementation on the dataset to predict the outcome. 
-- Unit test: 10% Can the test cases isolate each part of the Jupyter Notebook and show that the individual parts work correctly?
-
-Feel free to ask any questions as you tackle challenge! Have Fun!
+- rgf-python (found on PyPI using pip) - this uses Regularised Greedy Forests c.f. https://github.com/RGF-team/rgf/tree/master/python-package
+- imblearn (found on PyPi using pip) - this is a 'sklearn-contrib' library specialised for imbalanced data sets. This was used to over-sample the minority class using a technique known as SMOTE c.f. https://github.com/scikit-learn-contrib/imbalanced-learn/tree/master/imblearn
+- mlxtend (found on PyPi using pip) - this library contains an easy-to-use out-of-the-box Stacking Classifier that can be used for stacking predictions from one classifier onto another i.e. using the outputs from one classifier cas a feature for another classifier c.f. https://github.com/rasbt/mlxtend
+- keras (found on PyPi using pip) - this was used to build a basic neural network (of the MLP architecture) as a classifier.
+- xgboost (found on PyPi using pip) - well-known boosting library used both to create a classification model as well as for its in-built feature importance functionality
