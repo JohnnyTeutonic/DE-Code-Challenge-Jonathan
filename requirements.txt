@@ -2,7 +2,7 @@ imblearn==0.5.0
 joblib==0.13.2
 keras==2.2.4
 matplotlib==3.0.3
-numpy==1.17.2
+numpy==1.22.0
 pandas==0.24.2
 pandas_profiling==2.3.0
 rgf==3.6.0 
